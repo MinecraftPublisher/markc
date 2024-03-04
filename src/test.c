@@ -1,3 +1,4 @@
+#define MARKC_AUTO_COLLECT
 #include "markc.h"
 
 mark gc = {};
@@ -11,16 +12,7 @@ int main(int argc, string *argv) {
     ull total = 0;
     ull count = 0;
 
-    for (ull i = 0; i < 1000; i++) {
-        var h         = new (int, i);
-        var() newlast = rdtsc();
-        total += newlast - last;
-        last = newlast;
-        count++;
-
-        var() avg = total / count;
-        // printf("Yo! %llu %llu\n", i, avg);
-    }
+    for (ull i = 0; i < 1000; i++) { var h = new (int, i); }
     printf("Hi\n");
 
     // printf("Avg: %llu Yo z %u Yo x %s Yo y %i\n", gc.avg_alloc_delay, *z, *x, *y);
