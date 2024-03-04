@@ -333,7 +333,7 @@ void markc_check_ptr(mark *gc, var ptr) { //
 }
 
 void markc_collect(mark *gc) {
-    courage(printf("Running cleanup\n"));
+    // courage(printf("Running cleanup\n"));
     int __top_of_stack;
     var() top_addr    = cast(ull, &__top_of_stack);
     var() bottom_addr = cast(ull, gc->bottom_of_stack);
@@ -375,11 +375,11 @@ void markc_collect(mark *gc) {
         }
 
         if (should_delete) {
-            courage(printf("Freed: %p\n", cast(var, h)));
+            // courage(printf("Freed: %p\n", cast(var, h)));
             gc->allocated = remove(var, gc->allocated, h);
             free(x);
         } else {
-            courage(printf("Not freeing: %p\n", x));
+            // courage(printf("Not freeing: %p\n", x));
         }
     }
 
